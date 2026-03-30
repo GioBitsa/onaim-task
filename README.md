@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# onaim-task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Project Overview
 
-Currently, two official plugins are available:
+This project is a Gaming Features Admin Panel that allows operators to manage three independent gaming modules: Leaderboard, Raffle, and Wheel (Spin-to-Win). It provides a structured interface to create, configure, and monitor each feature efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+2. Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The project follows a modular feature-based architecture where each domain (Leaderboard, Raffle, Wheel) is fully isolated.
 
-## Expanding the ESLint configuration
+Key Principles
+Feature Isolation — Each module contains its own pages, components, hooks, and services
+Shared Layer — Common UI components and utilities are reused across modules
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Project Structure:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+src/
+├── modules/
+│ ├── leaderboard/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── hooks/
+│ │ └── api/
+│ ├── raffle/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── hooks/
+│ │ └── api/
+│ └── wheel/
+│ ├── pages/
+│ ├── components/
+│ ├── hooks/
+│ └── api/
+│
+├── shared/
+│ ├── layout/
+│ ├── components/
+│ ├── hooks/
+│
+├── app/
+│ └── router.tsx
+│
+└── main.tsx
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+React 18 — UI library
+TypeScript — Type safety and scalability
+React Router DOM — Routing
+Material UI (MUI) — UI components and styling
+Vite — Fast build tool and dev server
+Axios — API communication
+Mock Data
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. Getting Started
+
+git clone <repository-url>
+cd <project-folder>
+npm install
+npm run dev
+
+---
+
+5. Design Decisions
+
+- 1. Feature-based architecture
+     პროექტი დაყოფილია მოდულებად (leaderboard, raffle, wheel), რაც უზრუნველყოფს კოდის იზოლაციას და მარტივ მასშტაბირებას. თითოეული მოდული დამოუკიდებლად შეიძლება განვითარდეს.
+
+- 2. Shared layer გამოყენება
+     საერთო კომპონენტები და utilities მოთავსებულია shared ფოლდერში. ეს ამცირებს კოდის დუბლირებას და უზრუნველყოფს ერთგვაროვან UI/UX-ს მთელ აპლიკაციაში.
+
+- 3. Mock Data
+     მონაცემები არის ფაილშივე, თუმცა API-სთან დასაკავშირებელი კოდიც ფაილშივეა დაწერილი.
