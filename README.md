@@ -16,33 +16,36 @@ Shared Layer — Common UI components and utilities are reused across modules
 
 Project Structure:
 
+```bash
 src/
 ├── modules/
-│ ├── leaderboard/
-│ │ ├── pages/
-│ │ ├── components/
-│ │ ├── hooks/
-│ │ └── api/
-│ ├── raffle/
-│ │ ├── pages/
-│ │ ├── components/
-│ │ ├── hooks/
-│ │ └── api/
-│ └── wheel/
-│ ├── pages/
-│ ├── components/
-│ ├── hooks/
-│ └── api/
+│   ├── leaderboard/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── api/
+│   │
+│   ├── raffle/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── api/
+│   │
+│   └── wheel/
+│       ├── pages/
+│       ├── components/
+│       ├── hooks/
+│       └── api/
 │
 ├── shared/
-│ ├── layout/
-│ ├── components/
-│ ├── hooks/
-│
-├── app/
-│ └── router.tsx
+│   ├── layout/
+│   ├── components/
+│   ├── hooks/
+│   ├── app/
+│   └── router.tsx
 │
 └── main.tsx
+```
 
 ---
 
